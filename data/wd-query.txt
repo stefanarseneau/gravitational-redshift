@@ -1,0 +1,18 @@
+-- Find binary stars with specific colors.
+-- At least one of them should have the colors of a white dwarf.
+
+SELECT TOP 100 s1.objID as s1, s2.objID as s2
+FROM	Star AS S1	-- S1 is the white dwarf
+JOIN Neighbors AS N ON S1.objID = N.objID	-- N is the precomputed neighbors lists
+JOIN Star AS S2 ON S2.objID = N.NeighborObjID	-- S2 is the second star
+WHERE
+N.NeighborType = dbo.fPhotoType('Star')
+-- and S2 is a star
+and N.distance < .05
+-- the 3 arcsecond test
+and ((S1.u - S1.g) < 0.4 )
+-- and S1 meets Paul Szkodys color cut for
+and (S1.g - S1.r) < 0.7
+-- white dwarfs.
+and (S1.r - S1.i) > 0.4
+and (S1.i - S1.z) > 0.4
