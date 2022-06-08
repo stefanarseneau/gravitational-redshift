@@ -50,11 +50,11 @@ def search(bestObjID):
                     sclass.append(wide_convert['subclass'][k])
                 except:
                     pass
-                #u.append(wide_convert['u'][k])
-                #g.append(wide_convert['g'][k])
-                #r.append(wide_convert['r'][k])
-                #i.append(wide_convert['i'][k])
-                #z.append(wide_convert['z'][k])
+                u.append(wide_convert['u'][k])
+                g.append(wide_convert['g'][k])
+                r.append(wide_convert['r'][k])
+                i.append(wide_convert['i'][k])
+                z.append(wide_convert['z'][k])
             except:
                 notfound = True
         if notfound:
@@ -69,8 +69,8 @@ def search(bestObjID):
 
 def select_sdss4(el_badry = '../external-dat/binaries/all_columns_catalog.fits', outfile = 'data/catalog_sdss4.csv'):
     
-    hdul = fits.open(el_badry)
-    df = pd.DataFrame(hdul[1].data)
+    hdul = Table.read(el_badry, format='fits')
+    df = hdul.to_pandas()
     
     print('Loaded El-Badry Catalog')
     
@@ -96,8 +96,8 @@ def select_sdss4(el_badry = '../external-dat/binaries/all_columns_catalog.fits',
         WHERE gaia_source.source_id IN {}\
     ".format(tuple(catalog['source_id2']))
     
-    job1 = Gaia.launch_job_async(ADQL_CODE1,dump_to_file=False)
-    job2 = Gaia.launch_job_async(ADQL_CODE2,dump_to_file=False)
+    job1 = Gaia.launch_job(ADQL_CODE1,dump_to_file=False)
+    job2 = Gaia.launch_job(ADQL_CODE2,dump_to_file=False)
     
     d1 = job1.get_results()
     d2 = job2.get_results()
@@ -176,6 +176,12 @@ def select_sdss4(el_badry = '../external-dat/binaries/all_columns_catalog.fits',
     catalog['fiberID1'] = fiberID1
     catalog['url1'] = url1
     catalog['subclass1'] = subclass1
+    
+    catalog['u1'] = u1
+    catalog['g1'] = g1
+    catalog['r1'] = r1
+    catalog['i1'] = i1
+    catalog['z1'] = z1
     catalog.reset_index(inplace=True, drop=True)
     
     drops2, sourceobjid2, plate2, mjd2, fiberID2, url2, u2,g2,r2,i2,z2, subclass2 = search( catalog['bestobjid2'] )
@@ -187,6 +193,12 @@ def select_sdss4(el_badry = '../external-dat/binaries/all_columns_catalog.fits',
     catalog['fiberID2'] = fiberID2
     catalog['url2'] = url2
     catalog['subclass2'] = subclass2
+    
+    catalog['u2'] = u2
+    catalog['g2'] = g2
+    catalog['r2'] = r2
+    catalog['i2'] = i2
+    catalog['z2'] = z2
     catalog.reset_index(inplace=True, drop=True)
           
     print('Saving catalog to {}'.format(outfile))
