@@ -36,7 +36,8 @@ pc_to_m = 3.086775e16
 
 bsq = BayestarQuery()
 
-def find_radius(l, b, parallax, obs_mag, e_obs_mag, floor_error = 0.03, deredden = True, make_plot = False, vary_logg = False, p0 = [10000, 8, 0.01, 100]):    
+
+def find_radius(l, b, parallax, obs_mag, e_obs_mag, floor_error = 0.03, deredden = True, make_plot = False, vary_logg = False, p0 = [10000, 8, 0.01, 100], bsq = None):    
     dist = 1000 / parallax
     
     if deredden:
@@ -116,6 +117,10 @@ def find_radius(l, b, parallax, obs_mag, e_obs_mag, floor_error = 0.03, deredden
         plt.legend() 
         
     return result
+
+if __name__ == '__main__':
+    bsq = BayestarQuery()
+
     
     
     
