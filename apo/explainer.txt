@@ -1,0 +1,5 @@
+On 2020-02-16, I observed WD0325-0111 (only MS data was reduced.WD was in the slit but probably too faint, G=17.1), WD0650+3754 (both WD and MS were reduced), WD0833+2915 (only MS was reduced. WD was in the slit but probably too faint, G=17.9), WD1323+1759 (only MS was reduced. WD was in the slit but was too faint, G=19.5). If I remember correctly, these WD-MS were selected so that their WDs have existing SDSS WD spectra, so I focused on obtaining the spectra of MS companions using APO. Also, some of these MS companions now have Gaia RVs (and Stefan probably has done this part as well?), so we can decide which RVs, APO or Gaia ,we want to use for them.
+
+On 2020-07-29, I observed WD1847+1811 (WD was reduced). Its MS is super bright, G=4 (probably a B- or A-type MS star? BP-RP=0.17), and has Gaia RV. The APO spectrum of the WD (G=15.33) spectrum looks very good (I think it's WD, not the leaked light from the super bright MS, but we need to check). WD1931+2109 (both WD and MS were reduced. Need to be careful because there is another random star in the slit), WD1928-1252 (double WD wide binary. 1-arcsec separation. Not resolved in APO), .
+
+-Hsiang-Chih Hwang
