@@ -2,3 +2,4 @@ data/elbadry.fits.gz
 sdss5/
 ./sdss5/
 ./sdss5/*
+credentials.txt
