@@ -5,8 +5,8 @@ mathtext.fontset : cm
 mathtext.default : regular
 axes.titlesize : x-large 
 axes.formatter.use_mathtext : True
-xtick.labelsize : 10
-ytick.labelsize : 10
+xtick.labelsize : 20
+ytick.labelsize : 20
 axes.labelsize : 26
 axes.unicode_minus : False
 xtick.top : True
