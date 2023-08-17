@@ -1,4 +1,4 @@
 data/elbadry.fits.gz
-sdss5/
-./sdss5/
-./sdss5/*
+sdss5/spAll-v6_1_0.fits
+sdss5/ms_fits/*
+sdss5/wd_fits/*
